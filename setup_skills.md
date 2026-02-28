@@ -25,12 +25,16 @@ When someone says "set up Gertrudix" / "help me get started" / "initial setup", 
    - Suggest the defaults: *Interesting Companies, Networking, Applications, Skill Building*
    - They can always ask Gertrudix to restructure these later
 
-5. **Run the setup script:**
+5. **Set up your `.env` file:**
+   - Copy `.env.example` to `.env`: `cp .env.example .env`
+   - Open `.env` in a text editor and fill in your values — **never share this file or paste its contents into the chat**
+
+6. **Run the setup script:**
    ```bash
    gertrudix_env/bin/python setup_notion.py
    ```
    - Follow the prompts (API key, parent page ID, categories)
-   - Copy the outputted `.env` values into your `.env` file
+   - The script will print the remaining IDs to add to `.env`
 
 6. **Manual step — add the formula:**
    - The Notion API can't create formula properties, so this one's by hand
