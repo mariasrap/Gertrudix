@@ -26,12 +26,29 @@ Say: *"First, let's create a Notion integration so Gertrudix can read and write 
 
 **1b. Paste the secret into .env**
 
-- Open the `.env` file in the Gertrudix folder with any text editor
-- Find the line `NOTION_API_KEY=` and paste your secret right after the `=`, no spaces:
-  ```
-  NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
-  ```
-- Save the file
+First, find the Gertrudix folder and confirm the `.env` file exists. Run:
+```bash
+pwd
+ls .env
+```
+
+If `ls .env` says "No such file", create it first:
+```bash
+cp .env.example .env
+```
+
+Then open it — tell them the exact path based on `pwd` output, e.g.:
+```bash
+open -e /path/from/pwd/.env        # Mac
+notepad /path/from/pwd/.env        # Windows
+nano /path/from/pwd/.env           # Linux
+```
+
+Find the line `NOTION_API_KEY=` and paste the secret right after the `=`, no spaces:
+```
+NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
+```
+Save and close.
 
 → *"Done?"*
 
