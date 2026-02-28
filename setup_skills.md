@@ -26,29 +26,21 @@ Say: *"First, let's create a Notion integration so Gertrudix can read and write 
 
 **1b. Paste the secret into .env**
 
-First, find the Gertrudix folder and confirm the `.env` file exists. Run:
-```bash
-pwd
-ls .env
-```
+⚠️ **Do NOT run any bash commands for this step. Do NOT use the Write, Edit, or Bash tools. Just talk the user through doing it themselves.**
 
-If `ls .env` says "No such file", create it first:
-```bash
-cp .env.example .env
-```
+Say: *"Now open Finder (Mac) or File Explorer (Windows) and navigate to your Gertrudix folder — wherever you cloned it (e.g. your Desktop). You should see a file called `.env.example`.*
 
-Then open it — tell them the exact path based on `pwd` output, e.g.:
-```bash
-open -e /path/from/pwd/.env        # Mac
-notepad /path/from/pwd/.env        # Windows
-nano /path/from/pwd/.env           # Linux
-```
+*On Mac, `.` files are hidden by default — press **Cmd+Shift+.** to reveal them.*
 
-Find the line `NOTION_API_KEY=` and paste the secret right after the `=`, no spaces:
+*Duplicate `.env.example` and rename the copy to `.env`. Then open `.env` in any text editor (TextEdit, Notepad, VS Code — anything works)."*
+
+Once they confirm it's open:
+
+Say: *"Find the line that says `NOTION_API_KEY=` and paste your secret right after the `=` sign, no spaces:*
 ```
 NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
 ```
-Save and close.
+*Save and close the file."*
 
 → *"Done?"*
 
