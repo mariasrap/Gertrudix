@@ -5,10 +5,12 @@ An agentic job search assistant built on Claude Code. Scrapes job boards, manage
 
 **Requirements:** Python 3.10+, [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview), a free [Notion](https://notion.so) account, and optionally Telegram.
 
+> **Don't have Python?** Install it from [python.org](https://www.python.org/downloads/) or via Homebrew: `brew install python`
+
 ```bash
 git clone https://github.com/mariasrap/Gertrudix
 cd Gertrudix
-python -m venv gertrudix_env
+python3 -m venv gertrudix_env
 source gertrudix_env/bin/activate   # Windows: gertrudix_env\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
