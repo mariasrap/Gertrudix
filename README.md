@@ -7,13 +7,24 @@ An agentic job search assistant built on Claude Code. Scrapes job boards, manage
 
 > **Don't have Python?** Install it from [python.org](https://www.python.org/downloads/) or via Homebrew: `brew install python`
 
+**Mac / Linux**
 ```bash
 git clone https://github.com/mariasrap/Gertrudix
 cd Gertrudix
 python3 -m venv gertrudix_env
-source gertrudix_env/bin/activate   # Windows: gertrudix_env\Scripts\activate
+source gertrudix_env/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
+```
+
+**Windows**
+```bash
+git clone https://github.com/mariasrap/Gertrudix
+cd Gertrudix
+python -m venv gertrudix_env
+gertrudix_env\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
 ```
 
 Then open the folder in Claude Code and say:
