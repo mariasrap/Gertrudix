@@ -109,12 +109,13 @@ Replace `PAGE_ID_HERE` with the actual page ID from step 1c, and adjust the cate
 
 Say: *"One last thing — the Notion API can't create formula properties, so you need to do this by hand. It only takes a minute."*
 
-- Open the **Contacts** database inside the page that was just created
-- Click **+** to add a new property → choose **Formula**
-- Name it: `Needs to be contacted`
-- Paste this formula:
+- Open the **Contacts** database — click on it to open it as a full page
+- Click the **+** button at the far right of the column headers to add a new property
+- In the property type list, choose **Formula**
+- At the top, rename it from "Formula" to: `Needs to be contacted`
+- Click **Edit formula**, paste this, then click **Done**:
   ```
-  (not empty(Last Contact) and now() > Last Contact.dateAdd(1, "weeks") and ["Contacted", "Replied-waiting for their answer"].includes(Status)) or Status == "Replied-waiting for my answer" or Status == "Not started"
+  (not empty(prop("Last Contact")) and now() > dateAdd(prop("Last Contact"), 1, "weeks") and (prop("Status") == "Contacted" or prop("Status") == "Replied-waiting for their answer")) or prop("Status") == "Replied-waiting for my answer" or prop("Status") == "Not started"
   ```
 
 → *"Done? That's the Notion setup complete!"*

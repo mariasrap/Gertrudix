@@ -317,10 +317,10 @@ def add_databases(headers, main_page_id):
                 "type": "code",
                 "code": {
                     "rich_text": [{"type": "text", "text": {
-                        "content": "(not empty(Last Contact) and now() > Last Contact.dateAdd(1, \"weeks\") "
-                                   "and [\"Contacted\", \"Replied-waiting for their answer\"].includes(Status)) "
-                                   "or Status == \"Replied-waiting for my answer\" "
-                                   "or Status == \"Not started\""
+                        "content": "(not empty(prop(\"Last Contact\")) and now() > dateAdd(prop(\"Last Contact\"), 1, \"weeks\") "
+                                   "and (prop(\"Status\") == \"Contacted\" or prop(\"Status\") == \"Replied-waiting for their answer\")) "
+                                   "or prop(\"Status\") == \"Replied-waiting for my answer\" "
+                                   "or prop(\"Status\") == \"Not started\""
                     }}],
                     "language": "plain text",
                 },
