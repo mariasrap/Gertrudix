@@ -35,9 +35,14 @@ ENV_FILE="$PROJECT_ROOT/.env"
 echo "Your .env is at: $ENV_FILE"
 ```
 
-Show the user the printed path, then say:
+Then open the file directly so the user doesn't have to find it (`.env` is hidden by default in Finder/File Explorer):
 
-*"Open that file in any text editor — TextEdit, Notepad, VS Code, anything. Find the line `NOTION_API_KEY=` and paste your secret right after the `=`, no spaces:*
+- **Mac:** `open -e "$ENV_FILE"` — opens in TextEdit
+- **Windows:** `notepad "$ENV_FILE"` — opens in Notepad
+
+If you're not sure which OS they're on, just run the Mac command — if it fails, try Windows. Either way, once it's open, say:
+
+*"A file just opened — that's your `.env`. Find the line `NOTION_API_KEY=` and paste your secret right after the `=`, no spaces:*
 ```
 NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
 ```
