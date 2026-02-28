@@ -82,12 +82,19 @@ Say: *"Almost ready to run the script. Last thing: the Notion page will have a t
 
 **1e. Run the setup script**
 
+By now you have the page ID (from step 1c) and the categories (from step 1d). Run the script from the real project root, passing both as arguments:
+
 ```bash
-gertrudix_env/bin/python setup_notion.py
+PROJECT_ROOT=$(dirname "$(git rev-parse --git-common-dir)")
+cd "$PROJECT_ROOT"
+gertrudix_env/bin/python setup_notion.py \
+  --parent-page-id PAGE_ID_HERE \
+  --categories "Interesting Companies, Networking, Applications, Skill Building"
 ```
 
-- When prompted, it will ask for the secret (already in .env so it may skip this), the page ID, and the categories
-- When it finishes, it will print the remaining IDs — paste them into `.env`
+Replace `PAGE_ID_HERE` with the actual page ID and adjust categories if the user chose different ones.
+
+- When it finishes, it prints the IDs for your `.env` — open the `.env` file and paste them in (same way as step 1b)
 
 → *"Did it run without errors? Check your Notion page — you should see a new 'Job Search HQ' page."*
 

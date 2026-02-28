@@ -10,6 +10,7 @@ Creates:
 Run: python setup_notion.py
 """
 
+import argparse
 import os
 import sys
 import requests
@@ -422,36 +423,31 @@ def create_applications_db(headers, parent_page_id):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--parent-page-id", help="Notion parent page ID (32-char string from the page URL)")
+    parser.add_argument("--categories", help="Comma-separated to-do categories")
+    args = parser.parse_args()
+
     print("=== Gertrudix Notion Setup ===\n")
 
     # Get API key
     api_key = os.getenv("NOTION_API_KEY")
     if not api_key:
-        api_key = input("Enter your Notion Internal Integration Secret: ").strip()
-        if not api_key:
-            print("Error: API key is required.")
-            sys.exit(1)
+        print("Error: NOTION_API_KEY not found in .env.")
+        sys.exit(1)
 
     headers = get_headers(api_key)
 
     # Get parent page
-    print("\nGertrudix needs a parent page in Notion to create its workspace under.")
-    print("Go to Notion, open the page where you want Gertrudix, click '...' > 'Copy link'.")
-    print("The page ID is the 32-character string at the end of the URL.\n")
-    parent_page_id = input("Enter the parent page ID: ").strip().replace("-", "")
+    parent_page_id = args.parent_page_id
     if not parent_page_id:
-        print("Error: Parent page ID is required.")
+        print("Error: --parent-page-id is required.")
         sys.exit(1)
+    parent_page_id = parent_page_id.strip().replace("-", "")
 
     # Get categories
-    print("\nNow let's set up your to-do list categories.")
-    print("These are the high-level buckets for organizing your job search tasks.")
-    default_str = ", ".join(DEFAULT_CATEGORIES)
-    print(f"Default: {default_str}")
-    print("Press Enter to use defaults, or type your own (comma-separated).\n")
-    categories_input = input("Categories: ").strip()
-    if categories_input:
-        categories = [c.strip() for c in categories_input.split(",") if c.strip()]
+    if args.categories:
+        categories = [c.strip() for c in args.categories.split(",") if c.strip()]
     else:
         categories = DEFAULT_CATEGORIES
 
