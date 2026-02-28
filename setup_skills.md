@@ -8,51 +8,89 @@ When someone says "set up Gertrudix" / "help me get started" / "initial setup", 
 
 ## Step 1 — Notion
 
-1. Tell them: *"I'll create your Notion workspace. You need a free Notion account and a Notion integration token."*
+Do this one substep at a time. After each one, wait for them to confirm before moving on.
 
-2. **Get the API key:**
-   - Go to https://www.notion.so/my-integrations
-   - Click "New integration"
-   - Set type to **Internal** (not Public — that one asks for a ton of extra info you don't need)
-   - Give it a name (e.g. "Gertrudix"), select your workspace, hit Submit
-   - Copy the **Internal Integration Secret** — that's your token
-   - Open the `.env` file in the Gertrudix folder (any text editor works)
-   - Find the line that says `NOTION_API_KEY=` and paste your token right after the `=`, no spaces:
-     ```
-     NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
-     ```
-   - Save the file
+**1a. Create the Notion integration**
 
-3. **Find the parent page ID:**
-   - Open Notion, navigate to the page where you want Gertrudix to live
-   - Click `...` → `Copy link`
-   - The page ID is the 32-character string at the end of the URL (before any `?`)
+Say: *"First, let's create a Notion integration so Gertrudix can read and write to your Notion."*
 
-4. **Choose to-do categories:**
-   - Ask them what high-level buckets make sense for their search
-   - Suggest the defaults: *Interesting Companies, Networking, Applications, Skill Building*
-   - They can always ask Gertrudix to restructure these later
+- Go to https://www.notion.so/my-integrations
+- Click **New integration**
+- Set type to **Internal** (not Public — that one asks for a ton of extra info)
+- Give it a name (e.g. "Gertrudix"), select your workspace, hit Submit
+- Copy the **Internal Integration Secret**
 
-5. **Set up your `.env` file:**
-   - Copy `.env.example` to `.env`: `cp .env.example .env`
-   - Open `.env` in a text editor and fill in your values — **never share this file or paste its contents into the chat**
+→ *"Done? Tell me when you have the secret copied."*
 
-6. **Run the setup script:**
-   ```bash
-   gertrudix_env/bin/python setup_notion.py
-   ```
-   - Follow the prompts (API key, parent page ID, categories)
-   - The script will print the remaining IDs to add to `.env`
+---
 
-6. **Manual step — add the formula:**
-   - The Notion API can't create formula properties, so this one's by hand
-   - Open the **Contacts** database → click `+` → choose **Formula**
-   - Name it: `Needs to be contacted`
-   - Paste this formula:
-     ```
-     (not empty(Last Contact) and now() > Last Contact.dateAdd(1, "weeks") and ["Contacted", "Replied-waiting for their answer"].includes(Status)) or Status == "Replied-waiting for my answer" or Status == "Not started"
-     ```
-   - This is what Gertrudix uses during the morning routine to flag who needs attention
+**1b. Paste the secret into .env**
+
+- Open the `.env` file in the Gertrudix folder with any text editor
+- Find the line `NOTION_API_KEY=` and paste your secret right after the `=`, no spaces:
+  ```
+  NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
+  ```
+- Save the file
+
+→ *"Done?"*
+
+---
+
+**1c. Create a parent page in Notion and connect the integration**
+
+Say: *"Now create a blank page in Notion — this is where Gertrudix will build your workspace."*
+
+- In Notion, create a new page anywhere (or use an existing empty one)
+- Click **...** in the top right → **Connections** → search for your integration name → click to connect it
+  *(This is required — without it the API can't access the page)*
+- Then copy the page link: **...** → **Copy link**
+- The page ID is the 32-character string at the end of the URL (before any `?`)
+- Paste it into `.env`:
+  ```
+  NOTION_MAIN_PAGE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  ```
+
+→ *"Done?"*
+
+---
+
+**1d. Choose your to-do categories**
+
+Say: *"Almost ready to run the script. Last thing: the Notion page will have a to-do list divided into sections — one per category. Think of them as buckets to organize your job search tasks. For example: companies you want to research, people to reach out to, applications in progress, skills to build."*
+
+- Suggest the defaults: **Interesting Companies, Networking, Applications, Skill Building**
+- Ask: *"Do these work for you, or do you want different ones? You can always ask me to reorganize them later."*
+- Wait for their answer
+
+---
+
+**1e. Run the setup script**
+
+```bash
+gertrudix_env/bin/python setup_notion.py
+```
+
+- When prompted, it will ask for the secret (already in .env so it may skip this), the page ID, and the categories
+- When it finishes, it will print the remaining IDs — paste them into `.env`
+
+→ *"Did it run without errors? Check your Notion page — you should see a new 'Job Search HQ' page."*
+
+---
+
+**1f. Add the formula to the Contacts database (manual step)**
+
+Say: *"One last thing — the Notion API can't create formula properties, so you need to do this by hand. It only takes a minute."*
+
+- Open the **Contacts** database inside the page that was just created
+- Click **+** to add a new property → choose **Formula**
+- Name it: `Needs to be contacted`
+- Paste this formula:
+  ```
+  (not empty(Last Contact) and now() > Last Contact.dateAdd(1, "weeks") and ["Contacted", "Replied-waiting for their answer"].includes(Status)) or Status == "Replied-waiting for my answer" or Status == "Not started"
+  ```
+
+→ *"Done? That's the Notion setup complete!"*
 
 ---
 
