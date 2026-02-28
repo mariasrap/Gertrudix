@@ -1,0 +1,9 @@
+anthropic
+notion-client
+python-telegram-bot
+chromadb
+fastapi
+uvicorn
+python-dotenv
+requests
+beautifulsoup4
