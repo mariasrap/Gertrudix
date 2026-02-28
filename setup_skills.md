@@ -24,23 +24,24 @@ Say: *"First, let's create a Notion integration so Gertrudix can read and write 
 
 ---
 
-**1b. Paste the secret into .env**
+**1b. Create the .env file**
 
-⚠️ **Do NOT run any bash commands for this step. Do NOT use the Write, Edit, or Bash tools. Just talk the user through doing it themselves.**
+Claude Code may be running from a worktree (not the actual project folder). Run this to find the real project root and create `.env` there:
 
-Say: *"Now open Finder (Mac) or File Explorer (Windows) and navigate to your Gertrudix folder — wherever you cloned it (e.g. your Desktop). You should see a file called `.env.example`.*
+```bash
+PROJECT_ROOT=$(dirname "$(git rev-parse --git-common-dir)")
+ENV_FILE="$PROJECT_ROOT/.env"
+[ -f "$ENV_FILE" ] || cp "$PROJECT_ROOT/.env.example" "$ENV_FILE"
+echo "Your .env is at: $ENV_FILE"
+```
 
-*On Mac, `.` files are hidden by default — press **Cmd+Shift+.** to reveal them.*
+Show the user the printed path, then say:
 
-*Duplicate `.env.example` and rename the copy to `.env`. Then open `.env` in any text editor (TextEdit, Notepad, VS Code — anything works)."*
-
-Once they confirm it's open:
-
-Say: *"Find the line that says `NOTION_API_KEY=` and paste your secret right after the `=` sign, no spaces:*
+*"Open that file in any text editor — TextEdit, Notepad, VS Code, anything. Find the line `NOTION_API_KEY=` and paste your secret right after the `=`, no spaces:*
 ```
 NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
 ```
-*Save and close the file."*
+*Save and close."*
 
 → *"Done?"*
 
