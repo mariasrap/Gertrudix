@@ -16,7 +16,12 @@ When someone says "set up Gertrudix" / "help me get started" / "initial setup", 
    - Set type to **Internal** (not Public — that one asks for a ton of extra info you don't need)
    - Give it a name (e.g. "Gertrudix"), select your workspace, hit Submit
    - Copy the **Internal Integration Secret** — that's your token
-   - Add to `.env`: `NOTION_API_KEY=your_token_here`
+   - Open the `.env` file in the Gertrudix folder (any text editor works)
+   - Find the line that says `NOTION_API_KEY=` and paste your token right after the `=`, no spaces:
+     ```
+     NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
+     ```
+   - Save the file
 
 3. **Find the parent page ID:**
    - Open Notion, navigate to the page where you want Gertrudix to live
