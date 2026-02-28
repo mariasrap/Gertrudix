@@ -1,8 +1,18 @@
 # Gertrudix Setup
 
-**This file is only needed once.** After completing setup, you can delete it.
+**This file is only needed once.** After all steps are done, you can delete it.
 
-When someone says "set up Gertrudix" / "help me get started" / "initial setup", guide them through the three steps below in order.
+## Progress
+- [ ] Step 1 — Notion
+- [ ] Step 2 — Telegram Bot
+- [ ] Step 3 — Knowledge Base
+- [ ] Step 4 — Job Board Scraping
+
+When someone says "set up Gertrudix" / "help me get started" / "initial setup" / "continue setup", check the progress section above and resume from the first unchecked step.
+
+After finishing each step, ask: *"Want to continue with the next step now, or stop here for today?"*
+- If **yes**: move on
+- If **no**: mark the completed step as `[x]` in the progress section above (edit this file), then say: *"No problem — next time just tell me to continue setup and I'll pick up from [next step name]."*
 
 ---
 
@@ -118,7 +128,9 @@ Say: *"One last thing — the Notion API can't create formula properties, so you
   (not empty(prop("Last Contact")) and now() > dateAdd(prop("Last Contact"), 1, "weeks") and (prop("Status") == "Contacted" or prop("Status") == "Replied-waiting for their answer")) or prop("Status") == "Replied-waiting for my answer" or prop("Status") == "Not started"
   ```
 
-→ *"Done? That's the Notion setup complete!"*
+→ *"Done! That's the Notion setup finished."*
+
+Mark Step 1 as `[x]` in the progress section, then ask: *"Want to continue with Step 2 (Telegram bot) now, or stop here for today?"*
 
 ---
 
