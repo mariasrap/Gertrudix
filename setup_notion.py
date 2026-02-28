@@ -46,8 +46,8 @@ def api_request(method, endpoint, headers, json=None):
     return response.json()
 
 
-def create_main_page(headers, parent_page_id, categories):
-    """Create the main Gertrudix page with weekly plan, to-do list, and notes."""
+def create_main_page(headers, page_id, categories):
+    """Populate an existing Notion page as the Gertrudix workspace."""
 
     # --- TO-DO LIST ---
 
@@ -201,12 +201,16 @@ def create_main_page(headers, parent_page_id, categories):
         },
     ]
 
-    result = api_request("POST", "pages", headers, json={
-        "parent": {"page_id": parent_page_id},
+    # Rename the page and set the capybara icon
+    api_request("PATCH", f"pages/{page_id}", headers, json={
         "icon": {"type": "emoji", "emoji": "🦫"},
         "properties": {
             "title": [{"type": "text", "text": {"content": "Job Search HQ"}}],
         },
+    })
+
+    # Add all content blocks to the existing page
+    api_request("PATCH", f"blocks/{page_id}/children", headers, json={
         "children": [
             # Header banner
             {
@@ -223,7 +227,7 @@ def create_main_page(headers, parent_page_id, categories):
         ] + children,
     })
 
-    return result["id"]
+    return page_id
 
 
 def add_databases(headers, main_page_id):
@@ -424,7 +428,7 @@ def create_applications_db(headers, parent_page_id):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--parent-page-id", help="Notion parent page ID (32-char string from the page URL)")
+    parser.add_argument("--page-id", help="Notion page ID (32-char string from the page URL) — this page will become Job Search HQ")
     parser.add_argument("--categories", help="Comma-separated to-do categories")
     args = parser.parse_args()
 
@@ -438,12 +442,12 @@ def main():
 
     headers = get_headers(api_key)
 
-    # Get parent page
-    parent_page_id = args.parent_page_id
-    if not parent_page_id:
-        print("Error: --parent-page-id is required.")
+    # Get page ID
+    page_id = args.page_id
+    if not page_id:
+        print("Error: --page-id is required.")
         sys.exit(1)
-    parent_page_id = parent_page_id.strip().replace("-", "")
+    page_id = page_id.strip().replace("-", "")
 
     # Get categories
     if args.categories:
@@ -456,22 +460,20 @@ def main():
         sys.exit(1)
 
     # Create everything
-    print("\nCreating Notion workspace...")
+    print("\nSetting up Notion workspace...")
 
-    print("  - Main page (weekly plan, to-do list, notes)...")
-    main_page_id = create_main_page(headers, parent_page_id, categories)
-    print(f"    Done: {main_page_id}")
+    print("  - Populating page (weekly plan, to-do list, notes)...")
+    create_main_page(headers, page_id, categories)
+    print(f"    Done.")
 
     print("  - Contacts & Applications databases...")
-    contacts_db_id, applications_db_id = add_databases(headers, main_page_id)
+    contacts_db_id, applications_db_id = add_databases(headers, page_id)
     print(f"    Contacts DB: {contacts_db_id}")
     print(f"    Applications DB: {applications_db_id}")
 
     # Output
     print("\n=== Setup complete! ===\n")
-    print("Add these to your .env file:\n")
-    print(f"NOTION_API_KEY={api_key}")
-    print(f"NOTION_MAIN_PAGE_ID={main_page_id}")
+    print("Add these two IDs to your .env file:\n")
     print(f"NOTION_CONTACTS_DB_ID={contacts_db_id}")
     print(f"NOTION_APPLICATIONS_DB_ID={applications_db_id}")
 

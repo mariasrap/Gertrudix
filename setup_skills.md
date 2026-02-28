@@ -52,15 +52,15 @@ NOTION_API_KEY=secret_xxxxxxxxxxxxxxxx
 
 ---
 
-**1c. Create a parent page in Notion and connect the integration**
+**1c. Create a page in Notion and connect the integration**
 
-Say: *"Now create a blank page in Notion — this is where Gertrudix will build your workspace."*
+Say: *"Now create a blank page in Notion — the script will turn it into your Job Search HQ."*
 
-- In Notion, create a new page anywhere (or use an existing empty one)
+- In Notion, create a new blank page anywhere
 - Click **...** in the top right → **Connections** → search for your integration name → click to connect it
-  *(This is required — without it the API can't access the page)*
-- Then copy the page link: **...** → **Copy link**
-- The page ID is the 32-character string at the end of the URL (before any `?`)
+  *(Required — without this the API can't access the page)*
+- Copy the page link: **...** → **Copy link**
+- The page ID is the 32-character string at the end of the URL (before any `?`). Keep it handy — you'll need it in step 1e.
 - Paste it into `.env`:
   ```
   NOTION_MAIN_PAGE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -88,13 +88,18 @@ By now you have the page ID (from step 1c) and the categories (from step 1d). Ru
 PROJECT_ROOT=$(dirname "$(git rev-parse --git-common-dir)")
 cd "$PROJECT_ROOT"
 gertrudix_env/bin/python setup_notion.py \
-  --parent-page-id PAGE_ID_HERE \
+  --page-id PAGE_ID_HERE \
   --categories "Interesting Companies, Networking, Applications, Skill Building"
 ```
 
-Replace `PAGE_ID_HERE` with the actual page ID and adjust categories if the user chose different ones.
+Replace `PAGE_ID_HERE` with the actual page ID from step 1c, and adjust the categories if the user chose different ones.
 
-- When it finishes, it prints the IDs for your `.env` — open the `.env` file and paste them in (same way as step 1b)
+- The script will rename that page to "Job Search HQ" and fill it with content — no subpage created
+- When it finishes, it prints two IDs — open `.env` and add them (same way as step 1b):
+  ```
+  NOTION_CONTACTS_DB_ID=...
+  NOTION_APPLICATIONS_DB_ID=...
+  ```
 
 → *"Did it run without errors? Check your Notion page — you should see a new 'Job Search HQ' page."*
 
