@@ -12,7 +12,10 @@ When someone says "set up Gertrudix" / "help me get started" / "initial setup", 
 
 2. **Get the API key:**
    - Go to https://www.notion.so/my-integrations
-   - Click "New integration", give it a name (e.g. "Gertrudix"), copy the token
+   - Click "New integration"
+   - Set type to **Internal** (not Public — that one asks for a ton of extra info you don't need)
+   - Give it a name (e.g. "Gertrudix"), select your workspace, hit Submit
+   - Copy the **Internal Integration Secret** — that's your token
    - Add to `.env`: `NOTION_API_KEY=your_token_here`
 
 3. **Find the parent page ID:**
