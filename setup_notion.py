@@ -427,7 +427,7 @@ def main():
     # Get API key
     api_key = os.getenv("NOTION_API_KEY")
     if not api_key:
-        api_key = input("Enter your Notion API key (integration token): ").strip()
+        api_key = input("Enter your Notion Internal Integration Secret: ").strip()
         if not api_key:
             print("Error: API key is required.")
             sys.exit(1)
