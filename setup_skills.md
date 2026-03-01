@@ -176,31 +176,22 @@ Say: *"If you have any of these, drop them into the `data/knowledge/documents/` 
 
 After saving, tell them: *"You can keep adding to `data/knowledge/` over time — the more context I have, the better I'll be at writing in your voice and pitching you accurately."*
 
-Also point them to `gertrudix.md`: they should update it with their own background, job search plan, and preferences — that's the main config file Gertrudix reads every session.
-
 ---
 
 ## Step 4 — Job Board Scraping
 
-Explain: *"Gertrudix can scrape job boards daily and surface new roles that might be a fit. The more sources you add, the better the coverage."*
+Explain: *"Gertrudix can scrape job boards daily and surface new roles that might be a fit. Let's save which sources you want me to watch."*
 
-**Good sources to scrape:**
+**Good sources to suggest:**
 - **Niche job boards** — e.g. [80,000 Hours](https://80000hours.org/job-board/) (impactful careers), [Climatebase](https://climatebase.org/) (climate), [AI Jobs](https://aijobs.net/), [Wellfound](https://wellfound.com/) (startups)
-- **Company career pages directly** — if there are specific companies they're targeting, add their careers page. More reliable than job boards and often faster.
-- **Aggregators** — [Greenhouse](https://boards.greenhouse.io/), [Lever](https://jobs.lever.co/), [Workday](https://www.myworkday.com/) are common ATS platforms — you can scrape specific companies' boards on these
+- **Company career pages** — if they have specific companies in mind, their careers page is more reliable and often faster than job boards
+- **Aggregators** — [Greenhouse](https://boards.greenhouse.io/), [Lever](https://jobs.lever.co/), [Workday](https://www.myworkday.com/) for specific companies
 
-**LinkedIn caveat:** LinkedIn actively blocks scrapers. Don't bother trying — it's not worth the effort. Use it manually.
+**LinkedIn caveat:** LinkedIn actively blocks scrapers — use it manually.
 
-Ask them: *"Are there specific companies or job boards you want me to check daily?"*
-- Add their answers to `src/scrapers/job_scraper.py` as new scraper targets
-- Check the existing scraper for examples of how sources are added
+Ask: *"Are there specific companies or job boards you want me to check daily?"*
+- Save their answers to `src/scrapers/job_scraper.py` as scraper targets (check the file for examples of how sources are added)
 
-**First run — do it together:**
-
-The first time you run the scraper, don't just discard or flag jobs silently. Go through results together:
-- For each potential fit, present it and explain why you think it's relevant
-- Let them react — *"yes", "no, too senior", "no, wrong field", "maybe later"*
-- Pay attention to the reasons behind rejections — they tell you a lot about what actually fits
-- Save the patterns: if they keep rejecting a certain type of role or company, update your understanding in `gertrudix.md`
-
-*The goal is to calibrate together so daily scraping becomes genuinely useful rather than noise.*
+Once the sources are saved, ask: *"Want to run the first scrape now to see what comes up, or save that for another time?"*
+- If yes: run it (first-scrape skill coming soon — skip for now if not built yet)
+- If no: that's fine, wrap up setup
