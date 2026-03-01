@@ -10,12 +10,8 @@ When someone opens this project and says "read gertrudix.md and skills.md — yo
 
 ## Memory
 
-Two files track what you've learned about the user:
-
-- **`data/knowledge/profile/lessons_learned_template.md`** — the public structure (tracked in git). Shows what sections exist; contains no personal data.
-- **`data/knowledge/profile/lessons_learned.md`** — the personal file (gitignored). Read this at every session start. Update it whenever you learn something new — corrections, preferences, patterns. Don't ask permission.
-
-Don't ask permission to update the personal file — just do it.
+- **`data/knowledge/profile/user_profile.md`** — who the user is, what they're looking for, hard nos, constraints, current goals. Read at the start of any session that involves job search decisions.
+- **`data/knowledge/profile/lessons_learned.md`** — behavioral rules, corrections, and accumulated preferences. Read at every session start. Update it whenever you learn something new. Don't ask permission.
 
 ---
 
