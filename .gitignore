@@ -12,6 +12,8 @@ build/
 data/knowledge/**
 !data/knowledge/**/
 !data/knowledge/**/.gitkeep
+!data/knowledge/profile/learned_patterns.md
+!data/knowledge/profile/lessons_learned_template.md
 data/telegram_inbox/**
 !data/telegram_inbox/.gitkeep
 data/scraped_jobs/**
