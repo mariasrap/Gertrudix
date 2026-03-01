@@ -4,6 +4,7 @@ gertrudix_env/
 __pycache__/
 *.pyc
 .DS_Store
+Icon\r
 *.egg-info/
 dist/
 build/
@@ -19,3 +20,6 @@ data/scraped_jobs/**
 data/eag_matches.json
 data/*.xlsx
 telegram_bot.log
+src/scraping/sources.json
+src/scraping/scrapers/eightykhours.py
+*_maria.md

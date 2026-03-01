@@ -1,0 +1,42 @@
+[
+  {
+    "_comment": "Find the slug in the job board URL, e.g. jobs.greenhouse.io/anthropic → slug is 'anthropic'",
+    "name": "Anthropic",
+    "type": "greenhouse",
+    "slug": "anthropic",
+    "filters": {
+      "locations": [],
+      "departments": []
+    }
+  },
+  {
+    "_comment": "Lever: find slug at jobs.lever.co/mistral → slug is 'mistral'",
+    "name": "Mistral",
+    "type": "lever",
+    "slug": "mistral",
+    "filters": {
+      "locations": [],
+      "departments": []
+    }
+  },
+  {
+    "_comment": "Ashby: find slug at jobs.ashbyhq.com/perplexity → slug is 'perplexity'",
+    "name": "Perplexity",
+    "type": "ashby",
+    "slug": "perplexity",
+    "filters": {
+      "locations": [],
+      "departments": []
+    }
+  },
+  {
+    "_comment": "RSS: slug is the full feed URL. Useful for companies without a supported ATS.",
+    "name": "Example RSS Company",
+    "type": "rss",
+    "slug": "https://example.com/jobs/feed.xml",
+    "filters": {
+      "locations": [],
+      "departments": []
+    }
+  }
+]

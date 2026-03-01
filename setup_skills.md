@@ -97,7 +97,7 @@ By now you have the page ID (from step 1c) and the categories (from step 1d). Ru
 ```bash
 PROJECT_ROOT=$(dirname "$(git rev-parse --git-common-dir)")
 cd "$PROJECT_ROOT"
-gertrudix_env/bin/python setup_notion.py \
+gertrudix_env/bin/python src/notion/setup_notion.py \
   --page-id PAGE_ID_HERE \
   --categories "Interesting Companies, Networking, Applications, Skill Building"
 ```
@@ -145,7 +145,7 @@ Mark Step 1 as `[x]` in the progress section, then ask: *"Want to continue with 
 
 3. **Run the bot:**
    ```bash
-   gertrudix_env/bin/python run_telegram_bot.py
+   gertrudix_env/bin/python src/telegram/run_telegram_bot.py
    ```
 
 4. **Test it:**
@@ -180,18 +180,25 @@ After saving, tell them: *"You can keep adding to `data/knowledge/` over time �
 
 ## Step 4 — Job Board Scraping
 
-Explain: *"Gertrudix can scrape job boards daily and surface new roles that might be a fit. Let's save which sources you want me to watch."*
+Say: *"Gertrudix can scrape job boards and company career pages daily to surface new roles. Let's set up your sources."*
 
 **Good sources to suggest:**
-- **Niche job boards** — e.g. [80,000 Hours](https://80000hours.org/job-board/) (impactful careers), [Climatebase](https://climatebase.org/) (climate), [AI Jobs](https://aijobs.net/), [Wellfound](https://wellfound.com/) (startups)
-- **Company career pages** — if they have specific companies in mind, their careers page is more reliable and often faster than job boards
-- **Aggregators** — [Greenhouse](https://boards.greenhouse.io/), [Lever](https://jobs.lever.co/), [Workday](https://www.myworkday.com/) for specific companies
+- **Niche job boards** — e.g. [80,000 Hours](https://jobs.80000hours.org/) (impactful careers), [Climatebase](https://climatebase.org/) (climate), [AI Jobs](https://aijobs.net/), [Wellfound](https://wellfound.com/) (startups)
+- **Company career pages** — more reliable and faster than job boards if they have specific targets
+- **LinkedIn caveat:** LinkedIn actively blocks scrapers — tell them to check it manually
 
-**LinkedIn caveat:** LinkedIn actively blocks scrapers — use it manually.
+First, create the user's personal sources file from the template:
 
-Ask: *"Are there specific companies or job boards you want me to check daily?"*
-- Save their answers to `src/scrapers/job_scraper.py` as scraper targets (check the file for examples of how sources are added)
+```bash
+cp src/scraping/sources_template.json src/scraping/sources.json
+```
 
-Once the sources are saved, ask: *"Want to run the first scrape now to see what comes up, or save that for another time?"*
-- If yes: run it (first-scrape skill coming soon — skip for now if not built yet)
-- If no: that's fine, wrap up setup
+Then clear the examples from `sources.json` (set it to an empty array `[]`) so you start fresh.
+
+Ask: *"What companies or job boards do you want me to check? List as many as you'd like."*
+
+For each source they mention, follow the **Add Scraping Source** skill (in skills.md). Then ask *"Any more?"* until they're done.
+
+Once all sources are added, ask: *"Want to run the first scrape now to see what comes up?"*
+- If yes: follow the **Run Scrapers** skill (in skills.md)
+- If no: wrap up setup

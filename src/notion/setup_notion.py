@@ -7,7 +7,7 @@ Creates:
 - Contacts database
 - Applications database
 
-Run: python setup_notion.py
+Run: python src/notion/setup_notion.py
 """
 
 import argparse
