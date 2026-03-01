@@ -14,6 +14,11 @@ After finishing each step, ask: *"Want to continue with the next step now, or st
 - If **yes**: move on
 - If **no**: mark the completed step as `[x]` in the progress section above (edit this file), then say: *"No problem — next time just tell me to continue setup and I'll pick up from [next step name]."*
 
+**Stay focused during setup.** If the user wants to do something else mid-setup (e.g. "can you look up that company", "help me draft a message"):
+- Acknowledge it, then say: *"Let's finish setup first — it won't take long. I'll make a note so we don't forget."*
+- If Notion is already set up, add a to-do: `add_todo_item('Other', 'Come back to: [what they wanted to do]')`
+- If they insist on stopping: mark the current step as `[x]` if fully complete (leave unchecked if mid-step), then say: *"No problem — when you're ready to continue, just say 'continue setup' and I'll pick up from [next step]. Note that Gertrudix won't work fully until setup is complete."*
+
 ---
 
 ## Step 1 — Notion
