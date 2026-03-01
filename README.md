@@ -18,13 +18,13 @@ You interact with it through Claude Code conversations — no separate app or UI
 
 ## Getting started
 
-**Requirements:** Python 3.10+, Claude Code, a free [Notion](https://notion.so) account, and optionally Telegram.
+**Requirements:** Python 3.11, Claude Code, a free [Notion](https://notion.so) account, and optionally Telegram.
 
 **Mac / Linux**
 ```bash
 git clone https://github.com/mariasrap/Gertrudix
 cd Gertrudix
-python3 -m venv gertrudix_env
+python3.11 -m venv gertrudix_env
 source gertrudix_env/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
@@ -34,7 +34,7 @@ cp .env.example .env
 ```bash
 git clone https://github.com/mariasrap/Gertrudix
 cd Gertrudix
-python -m venv gertrudix_env
+py -3.11 -m venv gertrudix_env
 gertrudix_env\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
