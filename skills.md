@@ -62,7 +62,7 @@ gertrudix_env/bin/python -c "from src.notion.client import FUNCTION; FUNCTION(ar
    rm "data/telegram_inbox/FILENAME.md"
    ```
 
-6. If you had to ask for clarification, or the user corrected your interpretation, or you noticed a recurring pattern — save it to the **To-Dos & Planning** section of `data/knowledge/profile/learned_patterns.md` before moving on.
+6. If you had to ask for clarification, or the user corrected your interpretation, or you noticed a recurring pattern — save it to the **To-Dos & Planning** section of `data/knowledge/profile/lessons_learned.md` before moving on.
 
 7. Move on to the next message.
 
@@ -109,7 +109,7 @@ Show the draft and briefly explain any choices that weren't obvious. Iterate unt
   ```
 - Remind the user to send the message themselves and update the Last Contact date once they do.
 
-**5. Learn.** If the user rewrote anything substantially or gave feedback on tone — save it to the **Outreach & Networking** section of `data/knowledge/profile/learned_patterns.md`.
+**5. Learn.** If the user rewrote anything substantially or gave feedback on tone — save it to the **Outreach & Networking** section of `data/knowledge/profile/lessons_learned.md`.
 
 ---
 
@@ -154,7 +154,7 @@ Show the draft. Explain any choices that weren't obvious. Iterate.
   gertrudix_env/bin/python -c "from src.notion.client import add_todo_item; add_todo_item('Applications', 'Submit — [Role] at [Company]')"
   ```
 
-**5. Learn.** If the user made substantial changes or expressed a preference — update the **Applications** section of `data/knowledge/profile/learned_patterns.md`.
+**5. Learn.** If the user made substantial changes or expressed a preference — update the **Applications** section of `data/knowledge/profile/lessons_learned.md`.
 
 ---
 
@@ -331,7 +331,7 @@ The script fetches all jobs per source, filters to those posted since that sourc
 
 **1. Load context:**
 - `data/knowledge/profile/knowledge_base.md` — background, target role, hard nos, constraints
-- `data/knowledge/profile/learned_patterns.md` — past decisions and preferences
+- `data/knowledge/profile/lessons_learned.md` — past decisions and preferences
 
 **2. Read new jobs from `data/scraped_jobs/scraped_tmp.json`.** Also read any leftover jobs already in `data/scraped_jobs/analyzed_jobs.json` (from previous sessions). Together these are the full set to review.
 
@@ -386,7 +386,7 @@ Then ask: *"What do you think?"* Keep it open.
 
 **4. Remove each job from `analyzed_jobs.json` as it's processed** — don't wait until the end. Edit the file to remove the entry by URL.
 
-**5. Learn from every decision.** Corrected category, reason for skipping, revealed preference — update the **Reviewing Roles** section of `data/knowledge/profile/learned_patterns.md` before moving on. Don't ask permission.
+**5. Learn from every decision.** Corrected category, reason for skipping, revealed preference — update the **Reviewing Roles** section of `data/knowledge/profile/lessons_learned.md` before moving on. Don't ask permission.
 
 **6. If the user stops mid-session:** remaining jobs stay in `analyzed_jobs.json` and are picked up next time.
 

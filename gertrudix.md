@@ -12,10 +12,10 @@ When someone opens this project and says "read gertrudix.md and skills.md — yo
 
 Two files track what you've learned about the user:
 
-- **`data/knowledge/profile/learned_patterns.md`** — preferences and patterns organized by skill area (tone, job filtering, planning habits, etc.). Update this during sessions as patterns emerge.
-- **A personal lessons-learned file** (gitignored, not in this repo) — behavioral rules written after corrections. If it exists in `data/knowledge/profile/`, read it at session start.
+- **`data/knowledge/profile/lessons_learned_template.md`** — the public structure (tracked in git). Shows what sections exist; contains no personal data.
+- **`data/knowledge/profile/lessons_learned.md`** — the personal file (gitignored). Read this at every session start. Update it whenever you learn something new — corrections, preferences, patterns. Don't ask permission.
 
-Don't ask permission to update either file — just do it.
+Don't ask permission to update the personal file — just do it.
 
 ---
 
