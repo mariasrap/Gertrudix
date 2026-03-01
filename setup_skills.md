@@ -24,7 +24,7 @@ Do this one substep at a time. After each one, wait for them to confirm before m
 
 Say: *"First, let's create a Notion integration so Gertrudix can read and write to your Notion."*
 
-- Go to https://www.notion.so/my-integrations
+- Go to https://www.notion.so/profile/integrations/internal
 - Click **New integration**
 - Set type to **Internal** (not Public — that one asks for a ton of extra info)
 - Give it a name (e.g. "Gertrudix"), select your workspace, hit Submit
@@ -193,9 +193,13 @@ After saving, tell them: *"You can keep adding to `data/knowledge/` over time �
 
 Say: *"Gertrudix can scrape job boards and company career pages daily to surface new roles. Let's set up your sources."*
 
-**Good sources to suggest:**
-- **Niche job boards** — e.g. [80,000 Hours](https://jobs.80000hours.org/) (impactful careers), [Climatebase](https://climatebase.org/) (climate), [AI Jobs](https://aijobs.net/), [Wellfound](https://wellfound.com/) (startups)
-- **Company career pages** — more reliable and faster than job boards if they have specific targets
+**Suggest sources based on the user's profile:**
+
+Read `data/knowledge/profile/user_profile.md` — you just filled it in. Based on their target roles, industries, and any companies they mentioned, suggest 3–5 relevant niche job boards and 3–5 specific company career pages. Explain briefly why each fits them (one line is enough — e.g. *"80,000 Hours lists research and AI safety roles, which matches your interest in that space"*).
+
+Think across:
+- **Niche job boards** — are there boards that specialise in their field? (e.g. health tech, climate, AI safety, robotics, biotech)
+- **Company career pages** — did they mention specific companies or types of companies? Surface the most relevant ones directly
 - **LinkedIn caveat:** LinkedIn actively blocks scrapers — tell them to check it manually
 
 First, create the user's personal sources file from the template:
