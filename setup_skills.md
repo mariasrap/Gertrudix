@@ -166,7 +166,15 @@ This is what makes Gertrudix actually useful for *you specifically*. Ask these q
 6. **Writing style:** "Drop a few examples of messages you've sent — LinkedIn DMs, emails, anything. This is how I learn to write like you."
    - Save these to `data/knowledge/messages/` (one file per type, e.g. `linkedin_example.md`, `email_example.md`)
 
-After saving, tell them: *"You can keep adding to `data/knowledge/` over time — notes, reflections, past applications, anything useful. The more context I have, the better I'll be."*
+**Documents to add (if they have them):**
+
+Say: *"If you have any of these, drop them into the `data/knowledge/documents/` folder — I'll be able to read them when writing applications or tailoring your pitch:*
+- *CV / resume (PDF or Word)*
+- *Cover letters from past applications*
+- *Any past application forms you filled out*
+- *Portfolio, writing samples, or anything else that shows your work"*
+
+After saving, tell them: *"You can keep adding to `data/knowledge/` over time — the more context I have, the better I'll be at writing in your voice and pitching you accurately."*
 
 Also point them to `gertrudix.md`: they should update it with their own background, job search plan, and preferences — that's the main config file Gertrudix reads every session.
 

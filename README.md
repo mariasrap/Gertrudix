@@ -1,4 +1,7 @@
 # Gertrudix 🦫
+
+> **Work in progress.** The setup flow (Notion workspace, Telegram bot, knowledge base) is functional. Daily-use skills and job board scraping are still being built.
+
 An agentic job search assistant built on Claude Code. Scrapes job boards, manages contacts and follow-ups, drafts applications and mails in your voice, helps you prioritize tasks and organize your days.
 
 ## Setup
