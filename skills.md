@@ -84,7 +84,7 @@ gertrudix_env/bin/python -c "from src.notion.client import get_contacts; import 
 ```
 
 **2. Load context.**
-Read `data/knowledge/profile/knowledge_base.md` — background, current goals, how the user presents themselves.
+Read `data/knowledge/profile/user_profile.md` — background, current goals, how the user presents themselves.
 If past message examples exist in `data/knowledge/messages/`, read them to understand the user's tone and style.
 
 **3. Draft the message.**
@@ -124,7 +124,7 @@ If you don't have it, ask for the URL or a paste. Read it carefully — the cove
 Many applications include prompts beyond the cover letter — "Why this role?", "Describe a research interest", "What's a challenge you've overcome?", custom essay questions. Ask: *"Does the application ask any specific questions or prompts beyond the cover letter?"* If yes, list them and draft an answer to each before writing the letter — they often clarify what to emphasize.
 
 **2. Load context.**
-- `data/knowledge/profile/knowledge_base.md` — background, goals, how the user presents themselves
+- `data/knowledge/profile/user_profile.md` — background, goals, how the user presents themselves
 - `data/knowledge/cover_letters/` — past cover letters for tone and structure reference
 - `data/knowledge/applications/` — past applications for reference
 
@@ -330,7 +330,7 @@ The script fetches all jobs per source, filters to those posted since that sourc
 ### Phase 3 — Categorize (autonomous)
 
 **1. Load context:**
-- `data/knowledge/profile/knowledge_base.md` — background, target role, hard nos, constraints
+- `data/knowledge/profile/user_profile.md` — background, target role, hard nos, constraints
 - `data/knowledge/profile/lessons_learned.md` — past decisions and preferences
 
 **2. Read new jobs from `data/scraped_jobs/scraped_tmp.json`.** Also read any leftover jobs already in `data/scraped_jobs/analyzed_jobs.json` (from previous sessions). Together these are the full set to review.
@@ -408,7 +408,7 @@ Follow **Run Scrapers → Phase 1** in full — check leftover jobs, initialize 
 **2. Launch background scraping.**
 Spawn a background subagent (Task tool, run\_in\_background=true) with instructions to:
 - Run **Run Scrapers → Phase 2** using the sources confirmed in step 1
-- Run **Run Scrapers → Phase 3** — load `knowledge_base.md` and `learned_patterns.md`, categorize all new jobs, write to `analyzed_jobs.json`, delete `scraped_tmp.json`
+- Run **Run Scrapers → Phase 3** — load `user_profile.md` and `learned_patterns.md`, categorize all new jobs, write to `analyzed_jobs.json`, delete `scraped_tmp.json`
 
 Don't wait for it — move on immediately.
 

@@ -5,7 +5,7 @@
 ## Progress
 - [ ] Step 1 — Notion
 - [ ] Step 2 — Telegram Bot
-- [ ] Step 3 — Knowledge Base
+- [ ] Step 3 — User Profile & Memory
 - [ ] Step 4 — Job Board Scraping
 
 When someone says "set up Gertrudix" / "help me get started" / "initial setup" / "continue setup", check the progress section above and resume from the first unchecked step.
@@ -154,25 +154,36 @@ Mark Step 1 as `[x]` in the progress section, then ask: *"Want to continue with 
 
 ---
 
-## Step 3 — Knowledge Base
+## Step 3 — User Profile & Memory
 
-This is what makes Gertrudix actually useful for *you specifically*. Ask these questions one at a time, wait for the answer, then save everything to `data/knowledge/profile/knowledge_base.md`.
+This is what makes Gertrudix actually useful for *you specifically*.
+
+**3a. Create the personal files:**
+
+```bash
+cp data/knowledge/profile/lessons_learned_template.md data/knowledge/profile/lessons_learned.md
+touch data/knowledge/profile/user_profile.md
+```
+
+**3b. Build the user profile:**
+
+Ask these questions one at a time, wait for the answer, then save everything to `data/knowledge/profile/user_profile.md`.
 
 1. **Background:** "Tell me about your professional background — what have you worked on, what are your main skills?"
 2. **What you're looking for:** "What kind of role are you looking for? What does your ideal job look like?"
 3. **What you're NOT looking for:** "What would make a role a hard no?"
 4. **Constraints:** "Any constraints — location, visa, salary, timeline?"
-5. **Current status:** "Where are you in the search right now? What have you already tried?"
+5. **Current status & priority:** "Where are you in the search right now, and what does success look like in the next few months?"
 6. **Writing style:** "Drop a few examples of messages you've sent — LinkedIn DMs, emails, anything. This is how I learn to write like you."
    - Save these to `data/knowledge/messages/` (one file per type, e.g. `linkedin_example.md`, `email_example.md`)
 
 **Documents to add (if they have them):**
 
-Say: *"If you have any of these, drop them into the `data/knowledge/documents/` folder — I'll be able to read them when writing applications or tailoring your pitch:*
-- *CV / resume (PDF or Word)*
-- *Cover letters from past applications*
-- *Any past application forms you filled out*
-- *Portfolio, writing samples, or anything else that shows your work"*
+Say: *"If you have any of these, drop them into the relevant `data/knowledge/` subfolder — I'll be able to read them when writing applications or tailoring your pitch:*
+- *CV / resume → `data/knowledge/cvs/`*
+- *Cover letters → `data/knowledge/cover_letters/`*
+- *Past applications → `data/knowledge/applications/`*
+- *Portfolio or writing samples → `data/knowledge/reflections/`"*
 
 After saving, tell them: *"You can keep adding to `data/knowledge/` over time — the more context I have, the better I'll be at writing in your voice and pitching you accurately."*
 
