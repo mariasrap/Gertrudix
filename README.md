@@ -1,14 +1,24 @@
 # Gertrudix 🦫
 
-> **Work in progress.** The setup flow (Notion workspace, Telegram bot, knowledge base) is functional. Daily-use skills and job board scraping are still being built.
+A personal job search assistant that runs inside [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview). It scrapes job boards, processes your notes, drafts messages and cover letters in your voice, manages contacts and follow-ups, and helps you plan and prioritize each day.
 
-An agentic job search assistant built on Claude Code. Scrapes job boards, manages contacts and follow-ups, drafts applications and mails in your voice, helps you prioritize tasks and organize your days.
+You interact with it through Claude Code conversations — no separate app or UI. Every morning you tell it to run the routine; it handles the rest.
 
-## Setup
+---
 
-**Requirements:** Python 3.10+, [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview), a free [Notion](https://notion.so) account, and optionally Telegram.
+## What it does
 
-> **Don't have Python?** Install it from [python.org](https://www.python.org/downloads/) or via Homebrew: `brew install python`
+- **Morning routine** — scrapes new jobs in the background while you clear your Telegram inbox, then reviews roles with you and plans your day
+- **Job review** — reads job listings, categorizes them against your profile, and surfaces only what's worth your attention
+- **Outreach** — drafts messages and follow-ups in your tone, adds contacts to Notion, reminds you when to follow up
+- **Applications** — writes cover letters and answers application prompts using your background and past examples
+- **Planning** — pulls your to-do list and weekly plan from Notion, helps you decide what to focus on today
+
+---
+
+## Getting started
+
+**Requirements:** Python 3.10+, Claude Code, a free [Notion](https://notion.so) account, and optionally Telegram.
 
 **Mac / Linux**
 ```bash
@@ -34,12 +44,14 @@ Then open the folder in Claude Code and say:
 
 > **"Read `setup_skills.md` and help me set up Gertrudix"**
 
-Gertrudix will guide you through the rest — creating your Notion workspace, setting up the Telegram bot, and populating your knowledge base.
+Claude will walk you through the rest — Notion workspace, Telegram bot, and your personal profile. From there, everything is self-explanatory.
+
+---
 
 ## Daily use
 
-Once set up, start every session with:
+Start each session with:
 
 > **"Read `gertrudix.md` and `skills.md` — you are Gertrudix"**
 
-Then try: *"run the morning routine"*
+Gertrudix will suggest starting with the morning routine, or you can ask for something specific.
