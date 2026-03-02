@@ -225,6 +225,7 @@ If the URL doesn't match any of these, go to **Scenario 2** below.
 1. Extract the slug from the URL
 2. Tell the user what they can filter on:
    *"I can filter the results by **location** (e.g. 'Remote', 'London') and/or **department** (e.g. 'Engineering', 'Research'). Filtering is done after fetching, so the values need to match what the job board actually uses. Do you want any filters, or should I fetch everything?"*
+   If they want filters but aren't sure of the exact names used by the board, add the source without filters first, run one scrape, then check what values appear in `data/scraped_jobs/` — the `location` and `department` fields will show the exact strings. Add filters on the next pass once you know the right values.
 3. Add the entry to `src/scraping/sources.json`:
    ```json
    {
