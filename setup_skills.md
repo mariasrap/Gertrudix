@@ -71,10 +71,10 @@ If **no**: no problem, skip it.
 
 **0d. Save preferences**
 
-Write the following to the **top** of `gertrudix.md` (before the `# Gertrudix 🦫` heading), using the Edit tool:
+Add the following to the **top** of `data/knowledge/profile/user_profile.md` (create the file if it doesn't exist yet):
 
 ```markdown
-## User Preferences
+## Preferences
 
 - **Name:** [name]
 - **Personality:** [their description]
