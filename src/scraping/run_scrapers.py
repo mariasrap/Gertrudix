@@ -1,10 +1,11 @@
+from __future__ import annotations
+
 import json
 from datetime import datetime
 from pathlib import Path
 
 from scrapers.ashby import AshbyScraper
 from scrapers.base import Job
-from scrapers.eightykhours import EightyKHoursScraper
 from scrapers.greenhouse import GreenhouseScraper
 from scrapers.lever import LeverScraper
 from scrapers.rss import RSSScraper
@@ -14,7 +15,6 @@ SCRAPER_MAP = {
     "lever": LeverScraper,
     "ashby": AshbyScraper,
     "rss": RSSScraper,
-    "eightykhours": EightyKHoursScraper,
 }
 
 
