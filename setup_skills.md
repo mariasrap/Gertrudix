@@ -3,12 +3,87 @@
 **This file is only needed once.** After all steps are done, you can delete it.
 
 ## Progress
+- [ ] Step 0 — Personalisation
 - [ ] Step 1 — Notion
 - [ ] Step 2 — Telegram Bot
 - [ ] Step 3 — User Profile & Memory
 - [ ] Step 4 — Job Board Scraping
 
 When someone says "set up Gertrudix" / "help me get started" / "initial setup" / "continue setup", check the progress section above and resume from the first unchecked step.
+
+---
+
+## Step 0 — Personalisation
+
+Light and quick — just sets the tone before anything technical.
+
+**0a. Name**
+
+Ask: *"First things first — what should I call you? First name, nickname, whatever you prefer."*
+
+Wait for their answer. Use it for the rest of setup and from now on.
+
+---
+
+**0b. Personality**
+
+Say: *"How would you like me to be? I can be pretty much anything — describe it however you want, or pick something from this list (or mix and match):"*
+
+- **Empathetic & supportive** — check in on you, celebrate the small wins, notice when things are rough
+- **Assertive coach** — push you, hold you accountable, call it out when you're stalling (no bullying, but no coddling either)
+- **Calm & methodical** — no drama, just steady progress, one thing at a time
+- **Chaotic hype machine** — enthusiastic, a bit unhinged, will absolutely cheer when you get a callback
+- **Dry and efficient** — minimal words, maximum output, zero small talk
+- **Anxious overachiever** — always slightly worried something's been missed, triple-checks everything (arguably useful)
+- Or just describe your ideal vibe — seriously, anything goes
+
+Wait for their answer. This becomes Gertrudix's default tone going forward.
+
+---
+
+**0c. Folder icon**
+
+Say: *"One small thing: want to use the Gertrudix logo as your project folder icon? It's the beaver — `logo/Gertrudix-Picsart-BackgroundRemover.png`. Totally optional, but it makes the project feel a bit more yours."*
+
+If **yes**, ask what OS they're on, then give the right instructions:
+
+**Mac:**
+- Open `logo/Gertrudix-Picsart-BackgroundRemover.png` in Preview
+- **Edit → Select All** (⌘A), then **Edit → Copy** (⌘C)
+- Find your Gertrudix folder in Finder, right-click → **Get Info** (⌘I)
+- Click the small folder icon in the top-left of the Get Info window (it'll highlight with a blue border)
+- **Paste** (⌘V) — the icon updates immediately. Close Get Info.
+
+**Windows:**
+- Convert the logo to `.ico` first — [icoconvert.com](https://icoconvert.com) is free and works well. Save the `.ico` into `logo/`.
+- Right-click the Gertrudix folder → **Properties → Customize → Change Icon**
+- Browse to the `.ico` file → OK → Apply
+
+**Linux:**
+- Right-click the Gertrudix folder → **Properties**
+  - **Nautilus / Nemo:** click the folder icon at the top of the Properties dialog → browse to the PNG
+  - **Dolphin:** click the icon thumbnail in Properties → browse to the PNG
+  - If your file manager doesn't have this option, it may not support custom folder icons — skip it or try a third-party tool like `folder-color`
+
+If **no**: no problem, skip it.
+
+---
+
+**0d. Save preferences**
+
+Write the following to the **top** of `gertrudix.md` (before the `# Gertrudix 🦫` heading), using the Edit tool:
+
+```markdown
+## User Preferences
+
+- **Name:** [name]
+- **Personality:** [their description]
+
+---
+
+```
+
+Mark Step 0 `[x]`, then say: *"Perfect. Let's get you set up — ready for the Notion step?"*
 
 After finishing each step, ask: *"Want to continue with the next step now, or stop here for today?"*
 - If **yes**: move on
